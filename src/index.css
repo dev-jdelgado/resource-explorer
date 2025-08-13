@@ -8,10 +8,10 @@
 
 [data-theme="dark"] {
   --bg: #0b1220;
-  --text: #e6eef8;
-  --card: #071126;
-  --muted: #9aa9bd;
-  --accent: #60a5fa;
+  --text: #ffffff;
+  --card: #344364;
+  --muted: #c6deff;
+  --accent: #59a4ff;
 }
 
 html, body, #root {
