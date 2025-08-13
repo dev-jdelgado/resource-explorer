@@ -18,13 +18,25 @@ export default function CharacterDetail() {
     const isFavorite = favorites.includes(data.id);
 
     return (
-        <div>
-        <h1>{data.name}</h1>
-        <img src={data.image} alt={data.name} />
-        <p>{data.species} - {data.status}</p>
-        <button onClick={() => toggleFavorite(data.id)}>
-            {isFavorite ? "★ Unfavorite" : "☆ Favorite"}
-        </button>
+        <div className="character-detail-card">
+            <h1 className="character-name">{data.name}</h1>
+            <img
+                src={data.image}
+                alt={data.name}
+                className="character-image"
+                loading="lazy"
+            />
+            <p className="character-info">
+                <strong>Species:</strong> {data.species} <br />
+                <strong>Status:</strong> {data.status}
+            </p>
+            <button
+                onClick={() => toggleFavorite(data.id)}
+                className={`favorite-btn ${isFavorite ? "favorited" : ""}`}
+                aria-pressed={isFavorite}
+            >
+                {isFavorite ? "★ Unfavorite" : "☆ Favorite"}
+            </button>
         </div>
     );
 }

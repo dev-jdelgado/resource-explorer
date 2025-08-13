@@ -99,23 +99,24 @@ export default function CharacterList() {
         </div>
 
         <select
-          aria-label="Filter by status"
-          value={status}
-          onChange={(e) => updateParam("status", e.target.value || undefined)}
-        >
-          <option value="">All status</option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="unknown">Unknown</option>
+            aria-label="Filter by status"
+            value={status}
+            onChange={(e) => updateParam("status", e.target.value || undefined)}
+            className="status-select"
+            >
+            <option value="">All status</option>
+            <option value="alive">Alive</option>
+            <option value="dead">Dead</option>
+            <option value="unknown">Unknown</option>
         </select>
 
-        <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
-          <input
-            type="checkbox"
-            checked={showFavorites}
-            onChange={(e) => updateParam("favorites", e.target.checked ? "1" : undefined)}
-          />
-          <span className="small">Favorites</span>
+        <label className="favorite-checkbox-label">
+            <input
+                type="checkbox"
+                checked={showFavorites}
+                onChange={(e) => updateParam("favorites", e.target.checked ? "1" : undefined)}
+            />
+            <span>Favorites</span>
         </label>
       </div>
 
