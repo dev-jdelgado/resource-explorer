@@ -14,6 +14,12 @@
   --accent: #59a4ff;
 }
 
+[data-theme="dark"] .btn {
+  background: var(--card);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -275,4 +281,15 @@ body {
 .theme-toggle-btn:active {
   box-shadow: 0 0 6px var(--accent);
   transform: scale(0.97);
+}
+
+.btn {
+  background: var(--card);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
