@@ -28,7 +28,7 @@ Live preview:
 **Steps**
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/dev-jdelgado/resource-explorer.git
 cd <your-repo-folder>
 
 # 2. Install dependencies
@@ -38,4 +38,20 @@ npm install
 npm run dev
 
 # 4. Open in your browser
-http://localhost:3000
+http://localhost:5173
+```
+
+## Architecture & trade-offs
+**What I prioritized**
+- Clean, easy-to-read component boundaries (pages/, components/, api/, hooks/).
+- URL is the source of truth for list state (so links are shareable and back/forward works).
+- Lightweight UX: Favorites is client-side and non-invasive.
+
+**Trade-offs**
+- Favorites filtering currently only filters the characters in the current page (client-side). To show all favorites across pages I'd fetch each favorite by ID (or maintain a local cache of all characters) — I chose the simpler route to keep fetches minimal.
+- Abort/cancellation: axios signal (AbortController) is supported; React Query handles cancellation when it re-runs queries, but more aggressive cancellation logic could be added for more complex flows.
+- No virtualization yet, simple grid is used. If the dataset or client memory becomes large I would add react-window.
+
+**What I'd ship next (if more time)**
+- Persist list scroll position between navigation (to improve back/forward UX).
+- Virtualized favorites / list when many items exist.
